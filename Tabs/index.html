@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tab">
+    <button class="tablinks" onclick="openLorem(event, 'First')">First</button>
+    <button class="tablinks" onclick="openLorem(event, 'Second')">Second</button>
+    <button class="tablinks" onclick="openLorem(event, 'Third')">Third</button>
+</div>
+
+<div id="First" class="tabcontent">
+    <h3>First</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+
+<div id="Second" class="tabcontent">
+    <h3>Second</h3>
+    <p>Nam luctus in magna eget blandit. Proin id ligula odio.</p>
+</div>
+
+<div id="Third" class="tabcontent">
+    <h3>Third</h3>
+    <p>Aliquam sem sapien, finibus eu eros id, auctor pellentesque ex.</p>
+</div>
+
+<script>
+  function openLorem(evt, Lorem) {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName('tabcontent');
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = 'none';
+    }
+    tablinks = document.getElementsByClassName('tablinks');
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(' active', '');
+    }
+    document.getElementById(Lorem).style.display = 'block';
+    evt.currentTarget.className += ' active';
+  }
+</script>
+
+</body>
+</html>
+
